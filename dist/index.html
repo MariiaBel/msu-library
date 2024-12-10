@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>МГУ база знаний</title>
     <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-    <script type="module" crossorigin src="./assets/main-DFeD0W8I.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/main-DP0PCOy4.css">
+    <script src="header.js"></script>
+    <script type="module" crossorigin src="./assets/main-3AqYXHJx.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/main-D12zPwW6.css">
   </head>
-  <body>
+  <body>
 <!-- do not delete -->
 
     <header class="header">
@@ -18,35 +19,7 @@
     </svg>
     <!-- <img class="header__logo-img" src="../../06_shared/img/svg/logo.svg" alt="logo" /> -->
   </div>
-  <search class="search header__search">
-    <form class="search__form" id="documentSearch">
-      <input
-        id="documentSearchInput"
-        class="search__input"
-        type="search"
-        name="search"
-        placeholder="Поиск по материалам"
-      />
-      <button class="search__round">
-        <svg class="search__icon">
-          <use href="#icon-search"></use>
-        </svg>
-      </button>
-    </form>
-  </search>
-  <!-- <button type="button" class="btn" tabindex="0">Скачать все</button>
-  -->
-  <button type="button" class="btn btn--accent btn--disabled header__btn" tabindex="0" disabled>Добавить материал</button>  <button class="header__login">
-    <svg class="header__icon" aria-label="user">
-      <use href="#icon-user"></use>
-    </svg>
-  </button>
-</header>
- <button type="button" class="btn" tabindex="0">Скачать все</button>
- <button type="button" class="btn btn--accent btn--disabled " tabindex="0" disabled>Добавить материал</button> <label class="checkbox checkbox--accent">
-    <input class="checkbox__input" type="checkbox"> 
-    <span class="checkbox__span"></span>
-</label>   <search class="search ">
+  <search class="search">
   <form class="search__form" id="documentSearch">
     <input
       id="documentSearchInput"
@@ -57,7 +30,119 @@
     />
     <button class="search__round">
       <svg class="search__icon">
-        <use href="#icon-search"></use>
+        <use href="#icon-arrow-right"></use>
+      </svg>
+    </button>
+  </form>
+</search>
+ <button type="button" class="btn" tabindex="0">Скачать все</button>
+ <button type="button" class="btn btn--accent" tabindex="0">Добавить материал</button>
+  <button class="header__login" id="header_login">
+    <svg class="header__icon" aria-label="user">
+      <use href="#icon-user"></use>
+    </svg>
+  </button>
+    <!-- modal.html -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="modal-close">&times;</button>
+          <h2>Вход в систему</h2>
+          <form id="login-form">
+            <div class="input-group">
+              <label for="username">Логин</label>
+              <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Войти</button>
+          </form>
+        </div>
+      </div>    <!-- modalMaterial.html -->
+    <div id="upload-modal" class="upload-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="UploadModal-close">&times;</button>
+          <h2>Страница загрузки материала</h2>
+          <form id="upload-form">
+            <div class="input-group">
+              <label for="name">Имя файла</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+              <label for="semester">Семестр (из списка)</label>
+              <select id="semester" name="semester" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="subject">Предмет (из списка)</label>
+              <select id="subject" name="subject" required>
+                <option value="math">Математика</option>
+                <option value="physics">Физика</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="professor">Препод (из списка)</label>
+              <select id="professor" name="professor" required>
+                <option value="Иванов">Иванов</option>
+                <option value="Петров">Петров</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="category">Категория (из списка)</label>
+              <select id="category" name="category" required>
+                <option value="lecture">Лекция</option>
+                <option value="practice">Практика</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="year">Год</label>
+              <input type="number" id="year" name="year" min="2000" max="2100" required>
+            </div>
+      
+            <div class="toggle-group">
+              <label>Загрузить файл или вставить ссылку</label>
+              <div>
+                <input type="radio" id="upload-file" name="toggle" value="file" checked>
+                <label for="upload-file">Файл</label>
+                <input type="radio" id="upload-link" name="toggle" value="link">
+                <label for="upload-link">Ссылка</label>
+              </div>
+            </div>
+      
+            <div class="input-group" id="file-input-group">
+              <label for="file">Загрузить файл</label>
+              <input type="file" id="file" name="file">
+            </div>
+            <div class="input-group" id="link-input-group" style="display: none;">
+              <label for="link">Ссылка</label>
+              <input type="url" id="link" name="link">
+            </div>
+      
+            <div class="submit-btn" id="sumbmitButton">Отправить</div>
+          </form>
+        </div>
+      </div>
+      </header>
+
+ <button type="button" class="btn" tabindex="0">Скачать все</button>
+ <button type="button" class="btn btn--accent" tabindex="0">Добавить материал</button> <label class="checkbox checkbox--accent">
+    <input class="checkbox__input" type="checkbox"> 
+    <span class="checkbox__span"></span>
+</label>   <search class="search">
+  <form class="search__form" id="documentSearch">
+    <input
+      id="documentSearchInput"
+      class="search__input"
+      type="search"
+      name="search"
+      placeholder="Поиск по материалам"
+    />
+    <button class="search__round">
+      <svg class="search__icon">
+        <use href="#icon-arrow-right"></use>
       </svg>
     </button>
   </form>
@@ -185,7 +270,7 @@
           </div>
         </div>  <div class="filter" data-filter="item" data-filter-group="category">
           <div class="filter__top" data-filter="toggleList">
-            <span class="filter__text">Категория</span>
+            <span class="filter__text">Библиотека</span>
               <svg class="filter__icon">
                 <use xlink:href="#icon-search"></use>
               </svg>
@@ -219,5 +304,5 @@
               </ul>
           </div>
         </div></div>
-          </body>
+          </body>
 </html>

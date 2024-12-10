@@ -1,5 +1,9 @@
 import { msuClient } from "@/01_app/api/client.js"
+<<<<<<< HEAD
+import { getAllDocumentsResourcesGet, searchDocumentSearchGet, addMaterialPageResourcePost } from "@/01_app/api/client/services.gen"
+=======
 import { getAllDocumentsResourcesGet, searchDocumentSearchGet, downloadFileFromS3GetFileLinkGet } from "@/01_app/api/client/services.gen"
+>>>>>>> main
 import store from "@/01_app/Store.js"
 
 // we need this type for document table 
@@ -82,6 +86,30 @@ export const getAllDocumentsToTable = async() => {
     return mappedData
 }
 
+<<<<<<< HEAD
+
+/**
+ * @param {string} searchValue for prompt
+ * @returns { Array<Document> } Documents for catalog table {@link Document}
+ */
+
+export const addMaterialPageResource = async(name, year, link, is_file, teacher,subject,category,semester_num) => {
+    
+    const { data } = await addMaterialPageResourcePost({
+        client:msuClient, 
+        body: {
+            name: name,
+            year: year,
+            link: link,
+            is_file: is_file,
+            teacher: teacher,
+            subject: subject,
+            category: category,
+            semester_num: semester_num,
+        }
+    })
+    console.log(data)
+=======
 export const getFileByLink = async(link) => {
     const { data } = await downloadFileFromS3GetFileLinkGet({
         client:msuClient, 
@@ -128,4 +156,5 @@ function downloadBlob(blob, name = 'document.pdf') {
       window.URL.revokeObjectURL(data);
       link.remove();
     }, 100);
+>>>>>>> main
 }
